@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File upload and details</title>
+</head> 
+<body>  
+    <div class="container">
+        <h1>Upload file: </h1>
+        <form action="none">
+            <input type="file" name="file" id="file">
+            <button type="submit">Upload File</button>
+            <button id="get-info">Get file info</button>
+        </form>
+        <h3>File Information: </h3>
+        <div id="file-info"></div>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+        let filename ;
+        form.addEventListener('submit', (e) => {
+            const formData = new FormData();
+            e.preventDefault();
+            const file = document.querySelector("#file");
+            formData.append("file", file.files[0]);
+            
+            fetch('http://127.0.0.1:5050/uploads', {
+                method : 'POST',
+                body: formData,
+            }).then(res => res.json()).then(data => console.log(data));
+            const fileinfo = [...formData];
+            filename = fileinfo[0][1].name;
+        });
+
+        
+        const btn = document.getElementById("get-info");
+        btn.addEventListener('click', () => {
+            fetch(`http://127.0.0.1:5050/getinfo/${filename}`).then(res => res.json())
+            .then((data) => {
+                console.log(data);
+                if(data.status === "file not found"){
+                    console.log(data);
+                } else {
+                    const name = data.fileinfo.name;
+                    const size = data.fileinfo.size;
+                    const type = data.fileinfo.filetype;
+                    const infoDiv = document.querySelector('#file-info');
+                    
+                    infoDiv.innerHTML = '<p>Name : ' + name + '</p>' + 
+                    '<p>Size : ' + size + '</p>' +
+                    '<p>Type : ' + type + '</p>';
+                }
+            });
+        })
+    </script>
+</body>
+</html>
