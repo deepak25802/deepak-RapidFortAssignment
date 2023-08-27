@@ -1,0 +1,20 @@
+body {
+    background-color: #f2f2f0;
+    font-family: 'Roboto Slab', serif;
+}
+.container{
+    background-color: rgba(221, 214, 206, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    margin: 10% 32%;    
+    border-radius: 10px;
+    padding: 50px 10px ;
+}
+
+.heading {
+    font-size: 1.9rem;
+}
+

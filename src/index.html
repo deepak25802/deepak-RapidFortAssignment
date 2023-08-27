@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File upload and details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head> 
 <body>  
     <div class="container">
-        <h1>Upload file: </h1>
+        <div>
+            <h1 class="heading">Upload file: </h1>
+        </div>
         <form action="none">
             <input type="file" name="file" id="file">
             <button type="submit">Upload File</button>
             <button id="get-info">Get file info</button>
         </form>
-        <h3>File Information: </h3>
+        <h1 class="heading">File Information: </h1>
         <div id="file-info"></div>
     </div>
 
@@ -45,7 +51,6 @@
                 } else {
                     const name = data.fileinfo.name;
                     const size = data.fileinfo.size;
-                    const type = data.fileinfo.filetype;
                     const infoDiv = document.querySelector('#file-info');
                     
                     infoDiv.innerHTML = '<p>Name : ' + name + '</p>' + 

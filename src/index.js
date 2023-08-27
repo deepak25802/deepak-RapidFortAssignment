@@ -50,7 +50,6 @@ app.get('/getinfo/:filename', (req, res) => {
       const fileInfo = {
         "name" : filename,
         "size" : fileStats.size,
-        "filetype" : type(filePath)
       }
       res.json({ fileinfo: fileInfo });
     }
