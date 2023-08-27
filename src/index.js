@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
 app.get('/getinfo/:filename', (req, res) => {
     const { filename } = req.params;
     if(filename === "" || filename === "undefined"){
-      res.json({status : "file not found"});
+      res.status(400).json({status : "file not found"});
     } else {
       const filePath = path.join(__dirname, 'upload', filename);
       const fileStats = fs.statSync(filePath);
