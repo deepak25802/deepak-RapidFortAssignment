@@ -28,4 +28,4 @@ jobs:
       working-directory: ./
       run: |
         docker image build -t docker.io/deepak258/deepakrapidfort .
-        docker push docker.io/deepak258/deepakrapidfort
+        docker push docker.io/deepak258/deepakrapidfort:latest
