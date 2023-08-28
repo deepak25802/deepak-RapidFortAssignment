@@ -33,3 +33,10 @@ Run `npm install` and then `npm run start` to start the server on the local mach
   - Make sure you have docker installed. Follow the [link](https://docs.docker.com/engine/install/) to install docker.
 - In the terminal run `bash script.sh`
 
+### Steps to run the kubernetes cluster 
+  - Make sure you have kubectl installed. 
+- In the terminal run `kubectl apply -f deployment.yaml`
+- Now run `kubectl apply -f deployment.yaml`
+- Get the name of the pod by running `kubectl get pod`
+- Now we need to expose the port to run the service in our local system. For this run `kubectl port-forward ${name of the service}  5050:5050` where name of the service is what we got in the previous step. 
+- Application can be accessed from the localhost on the 5050 port

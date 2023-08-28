@@ -5,8 +5,9 @@ metadata:
 spec:
   selector:
     app: server
-  type: LoadBalancer
+  type: NodePort
   ports:
     - protocol: TCP 
       port: 5050
       targetPort: 5050
+      nodePort : 30004

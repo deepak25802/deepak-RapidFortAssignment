@@ -1,7 +1,6 @@
 name: build and deploy
 
-on:
-  push:
+on: [ push ]
     # Trigger on any push to any branch
     # branches:
     #   - main
